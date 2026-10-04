@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - MONGO_URL=mongodb://db:27017/todos
+      # hostname is "db", not "localhost" inside compose
+  db:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      # keeps the actual database files around even if the container is deleted
+
+volumes:
+  mongo-data:
