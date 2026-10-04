@@ -1,4 +1,4 @@
-assert.strictEqual(isValidTodoText("Buy milk"), false); // wrong on purpose
+assert.strictEqual(isValidTodoText("Buy milk"), true);
 const { isValidTodoText } = require("./utils");
 
 assert.strictEqual(isValidTodoText("Buy milk"), true);
